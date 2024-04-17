@@ -1,0 +1,29 @@
+{
+  "name": "marketplace-integrations",
+  "version": "1.0.0",
+  "description": "TonderLabs marketplace implementations.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TonderLabs/marketplace-integrations.git"
+  },
+  "keywords": [
+    "marketplace",
+    "TON",
+    "ecosystem",
+    "blockchain"
+  ],
+  "authors": "TonderLabs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TonderLabs/marketplace-integrations/issues"
+  },
+  "homepage": "https://github.com/TonderLabs/marketplace-integrations#readme"
+}
