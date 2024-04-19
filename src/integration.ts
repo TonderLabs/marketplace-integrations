@@ -35,6 +35,7 @@ export type GetDataResponse = {
   priceDenominationType: PriceDenominationType;
   price: number | { min: number; max: number };
   fields?: Field[];
+  // Additional data to be passed to the submitData method.
   data: Record<string, unknown>;
 };
 
@@ -48,22 +49,16 @@ export type DataResponse = {
   transactionReference: string;
 };
 
-// UserValues represents the user values in the submitData payload.
-type UserValues = {
-  amount?: number;
-  [key: string]: unknown;
-};
-
 // SubmitDataPayload represents the payload for the submitData method.
 export type SubmitDataPayload = {
-  userValues: UserValues;
+  amount: number;
   [key: string]: unknown;
 };
 
 // GetAssetDataResult represents the result of the getAssetData method.
 export type GetAssetDataResult = {
   data: GetDataResponse[];
-  queryParams?: QueryParams;
+  supportedQueryParams?: QueryParams;
 };
 
 // Pagination represents the pagination options.
@@ -72,12 +67,20 @@ export type Pagination = {
   limit: number;
 };
 
+export type Config = Record<string, unknown>;
+
 // Integration is an abstract class for all integrations.
 export abstract class Integration {
+  // Config variables passed to the integration from application.
+  protected config: Config;
+  constructor(config: Config) {
+    this.config = config;
+  }
+
   // getAssetData gets the asset data with optional filters.
   abstract getAssetData(
     pagination: Pagination,
-    queryParams?: QueryParams
+    requestQueryParams?: QueryParams
   ): Promise<GetAssetDataResult>;
 
   // submitData submits data to the asset provider.
@@ -85,4 +88,6 @@ export abstract class Integration {
 
   // handleWebhook handles a webhook from the asset provider.
   abstract handleWebhook(data: unknown): Promise<DataResponse>;
+
+ abstract validateWebhookPayload(requestBody: Record<string, unknown>): boolean;
 }

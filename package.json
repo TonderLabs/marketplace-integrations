@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "TonderLabs marketplace implementations.",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "africastalking": "^0.6.7",
+    "axios": "^1.6.8"
+  },
   "devDependencies": {
+    "@types/africastalking": "^0.6.2",
     "typescript": "^5.4.5"
   },
   "scripts": {

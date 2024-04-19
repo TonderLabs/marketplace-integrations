@@ -7,7 +7,7 @@
     "outDir": "dist",
     "rootDir": "src",
     "baseUrl": ".",
-    "resolveJsonModule": true,
+    // "resolveJsonModule": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["node"],

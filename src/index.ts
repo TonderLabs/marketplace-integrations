@@ -1,1 +1,2 @@
-export const MarketPlaceConfig = {};
+export * from "./integrationMapper";
+export * from "./integration";
