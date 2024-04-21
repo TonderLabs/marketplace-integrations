@@ -19,3 +19,5 @@ export const integrations = {
 };
 
 export type IntegrationKey = keyof typeof integrations;
+
+export type IntegrationType = typeof integrations[keyof typeof integrations]["handler"];
